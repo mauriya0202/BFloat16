@@ -70,6 +70,7 @@ m_temp[9:0]=m_add[11]?m_add[10:1]:m_add[9:0];
 m_temp[10]=1;
 m_temp[11]=0;
 
+//rounding off
 g=m_temp[3];
 r=m_temp[2];
 s0=m_temp[0];
