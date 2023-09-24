@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module parameterization_div_tb#(parameter N=4)();
+module parameterization_div_tb#(parameter N=2)();
 reg clk;
 reg [16*N-1:0] a;
 reg [16*N-1:0] b;
