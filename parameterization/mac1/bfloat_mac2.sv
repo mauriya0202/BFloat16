@@ -20,9 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module bfloat_mac2(a,b,clk,out);
+module bfloat_mac2(a,b,cntl,clk,out);
 input bit[15:0]a,b;
 input bit  clk;
+input bit  cntl;
 output bit [15:0]out;
 bit [15:0] fprod, fadd;
 bit [15:0] data_a, data_b, fprod1;
@@ -34,7 +35,7 @@ data_b<=b;
 end
 
 bfloat_mult_1 mul(data_a,data_b,fprod,clk);
-bfloat_add_sub add(fprod,out,fadd,0,clk);
+bfloat_add_sub add(fprod,out,fadd,cntl,clk);
 
 assign out=fadd;
 
