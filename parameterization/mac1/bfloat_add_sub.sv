@@ -25,7 +25,7 @@ input logic [15:0]a,b;
 output logic [15:0]c;
 input logic cntl,clk;
 
-logic [15:0]a1,b1,temp;
+bit [15:0]a1,b1,b2,temp;
 logic cntl1;
 logic [7:0]ea,eb,e,bias; //bias dimension
 logic [6:0]ma,mb,m_f;
@@ -33,12 +33,14 @@ logic [11:0] ma_temp,mb_temp,m_add,m_temp,msub;
 logic [8:0]m1;
 logic g,r,s0,s1,s,p,s3;
 int l;
+bit x;
 
 always@(posedge clk)
 begin
-c[15]=s3;
-c[6:0]=m_f;
-c[14:7]=e;
+c[15]<=s3;
+c[6:0]<=m_f;
+c[14:7]<=e;
+
 end
 
 always_comb
@@ -47,20 +49,23 @@ begin
    b1=b;
    cntl1=cntl;
    
-   if(cntl1==1) //if cntl is 1 then subtraction
+   
+ if(cntl1==1) //if cntl is 1 then subtraction
+ begin
     b1[15]=~b1[15];
-   else
-    b1[15]=b1[15];
+end
+   
+
    
     if(a1[14:7]<b1[14:7]) //making the larger number a
       begin
         temp=a1;
-        a1=b;
+        a1=b1;
         b1=temp;
       end
-  else if(a[14:7]==b[14:7])
+  else if(a1[14:7]==b1[14:7])
   begin
-    if(a[6:0]<b[6:0])
+    if(a1[6:0]<b1[6:0])
         begin
         temp=a1;
         a1=b1;
