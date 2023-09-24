@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module parameterization_div #(parameter N=4)(a1,b1,c1,clk1);
+module parameterization_div #(parameter N=2)(a1,b1,c1,clk1);
 input bit[16*N-1:0]a1,b1;
 input bit  clk1;
 output bit [16*N-1:0]c1;
