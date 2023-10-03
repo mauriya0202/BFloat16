@@ -53,6 +53,12 @@ module bfloat_div(a1,b1,c,clk);
   c[14:7]=8'b11111111;
   c[6:0]=7'b0;
   end
+  else if(a[14:7]==8'b11111111 && b==0) //inf/b
+  begin
+  c[15]<=sc;
+  c[14:7]=8'b11111111;
+  c[6:0]=7'b0;
+  end
   else if(a==16'b0 && b!=16'b0) //0/b
   c<=16'b0;
   else if(a!=16'b0 && b==16'b0) //a/0
